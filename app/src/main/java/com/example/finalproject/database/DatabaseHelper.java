@@ -1,5 +1,6 @@
 package com.example.finalproject.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,10 +16,17 @@ import java.util.List;
     TODO: How to use data base
         1- To get one house by its ID:
             DatabaseHelper db = DatabaseHelper.getInstance(getActivity());
-            House house = dbh.getHouse(Integer.parseInt(id));
+            House house = db.getHouse(Integer.parseInt(id));
         2- To get all houses in database:
             DatabaseHelper db = DatabaseHelper.getInstance(getActivity());
-            List<House> houses = dbh.getAllHouses();
+            List<House> houses = db.getAllHouses();
+        3- To insert a house to the db
+            DatabaseHelper db = DatabaseHelper.getInstance(getActivity());
+            long houseId = db.insertHouse(house);
+        P.S.: To insert a house, create a house object and SET ALL DATA REQUIRED.
+        You have to insert some data to begin with otherwise you wil not have anything
+        on the database to select from. You also might need to get latitude and longitude
+        on google maps.
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -160,6 +168,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return house;
+    }
+
+    public long insertHouse(House house) {
+        //in case it doesnt insert house for some reason, we will know by having -1 as return
+        long houseId = -1;
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        //creates contentValues and inserts all house data on it
+        ContentValues cv = new ContentValues();
+        cv.put(STREET_ADRESS, house.getStreetAdress());
+        cv.put(CITY, house.getCity());
+        cv.put(PROVINCE, house.getProvince());
+        cv.put(COUNTRY, house.getCountry());
+        cv.put(ZIPCODE, house.getZipcode());
+        cv.put(DESCRIPTION, house.getDescription());
+        cv.put(BEDS, house.getBeds());
+        cv.put(BATHS, house.getBaths());
+        cv.put(PRICE, house.getPrice());
+        cv.put(LATITUDE, house.getLatitude());
+        cv.put(LONGITUDE, house.getLongitude());
+
+        //begin transaction for consistency and inserts the contentValue to the database
+        db.beginTransaction();
+        try {
+            houseId = db.insertOrThrow(TABLE_NAME, null, cv);
+            db.setTransactionSuccessful();
+        } catch (Exception e) {
+            Log.e("INSERTION", "insertHouse: insertion error: " + e.getMessage());
+        } finally {
+            db.endTransaction();
+        }
+
+        return houseId;
     }
 
     //delete all records from table houses, this was created for testing purposes
