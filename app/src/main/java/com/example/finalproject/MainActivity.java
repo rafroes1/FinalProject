@@ -25,28 +25,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // adding fragment to activity
-        // ------- Paste this code wherever you need a map ---------
-        setContentView(R.layout.fragment_map);
+        setContentView(R.layout.activity_main);
+        Button btnMoreActivity = findViewById(R.id.btnMoreDetails);
 
-        MapFragment mp = new MapFragment(db);
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentMap);
-
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(mp);
-        }
-        // ----------------------------------------------------------
-
-
-//        setContentView(R.layout.activity_main);
-//        Button btnMoreActivity = findViewById(R.id.btnMoreDetails);
-//
-//        btnMoreActivity.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                goToMoreDetails();
-//            }
-//        });
+        btnMoreActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToMoreDetails();
+            }
+        });
     }
 
     //Use this function to go to the other activity, don't forget to pass the house ID

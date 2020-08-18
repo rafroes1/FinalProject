@@ -20,14 +20,11 @@ import java.util.List;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
     private GoogleMap googleMap;
-    private DatabaseHelper db;
+    private House house;
 
-    /***
-     * Map Fragment constructor requires a DatabaseHelper instance
-     * @param db - a DatabaseHelper instance
-     */
-    public MapFragment(DatabaseHelper db) {
-        this.db = db;
+
+    public MapFragment( House house) {
+        this.house = house;
     }
 
     @Override
@@ -52,12 +49,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
 
-        // Getting all the houses from DataBase and then pin them to the map
-        List<House> houses = db.getAllHouses();
+        googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(this.house.getLatitude(), this.house.getLongitude())));
 
-        for (House h : houses) {
-            googleMap.addMarker(new MarkerOptions()
-            .position(new LatLng(h.getLatitude(), h.getLongitude())));
-        }
     }
 }
