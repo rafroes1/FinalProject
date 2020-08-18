@@ -7,13 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.finalproject.database.DatabaseHelper;
+import com.example.finalproject.fragments.MapFragment;
+import com.example.finalproject.model.House;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+    private DatabaseHelper db = DatabaseHelper.getInstance(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+        setContentView(R.layout.activity_main);
         Button btnMoreActivity = findViewById(R.id.btnMoreDetails);
 
         btnMoreActivity.setOnClickListener(new View.OnClickListener() {
