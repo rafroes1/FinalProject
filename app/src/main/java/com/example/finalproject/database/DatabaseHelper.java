@@ -23,7 +23,7 @@ import java.util.List;
         3- To insert a house to the db
             DatabaseHelper db = DatabaseHelper.getInstance(getActivity());
             long houseId = db.insertHouse(house);
-        P.S.: To insert a house, create a house object and SET ALL DATA REQUIRED.
+        P.S.: To insert a house, create a house object and SET ALL DATA REQUIRED, unless ID.
         You have to insert some data to begin with otherwise you wil not have anything
         on the database to select from. You also might need to get latitude and longitude
         on google maps.

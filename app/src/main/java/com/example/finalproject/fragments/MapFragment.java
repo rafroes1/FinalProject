@@ -9,17 +9,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.finalproject.R;
-import com.example.finalproject.database.DatabaseHelper;
 import com.example.finalproject.model.House;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.List;
-
 public class MapFragment extends Fragment implements OnMapReadyCallback {
-    private GoogleMap googleMap;
     private House house;
 
 
@@ -36,9 +33,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_map, container, false);
 
-        return v;
+        return inflater.inflate(R.layout.fragment_map, container, false);
     }
 
     /***
@@ -47,7 +43,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        this.googleMap = googleMap;
+
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(this.house.getLatitude(), this.house.getLongitude()), 17.0f));
 
         googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(this.house.getLatitude(), this.house.getLongitude())));
