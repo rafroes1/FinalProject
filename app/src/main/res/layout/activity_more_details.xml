@@ -20,8 +20,6 @@
             android:layout_height="match_parent"
             android:id="@+id/fragmentMap"
             tools:context=".MoreDetailsActivity"/>
-
-        <!--TODO: INSERT MAP FRAGMENT INSIDE THIS FRAME -->
     </FrameLayout>
 
     <LinearLayout
@@ -29,25 +27,34 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:layout_margin="10dp"
         >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:text="House Information:"
+            android:layout_margin="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:paddingLeft="20dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
                 app:srcCompat="@drawable/ic_place_black_24dp" />
+
             <TextView
                 android:id="@+id/addressTxt"
-                android:paddingLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:text="ADDRESS"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -55,94 +62,119 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/ic_location_city_black_24dp" />
+                <TextView
+                    android:id="@+id/cityTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="CITY"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/provinceTxt"
+                android:layout_marginStart="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="PROVINCE"/>
+
+            <TextView
+                android:id="@+id/countryTxt"
+                android:layout_marginStart="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="COUNTRY"/>
+
+            <TextView
+                android:id="@+id/zipCodeTxt"
+                android:layout_marginStart="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="ZIPCODE"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:textAlignment="center"
+                    app:srcCompat="@drawable/bed" />
+                <TextView
+                    android:id="@+id/bedTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:text="BED"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/bath" />
+                <TextView
+                    android:id="@+id/bathTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:text="BATH"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            app:srcCompat="@drawable/ic_location_city_black_24dp" />
-        <TextView
-            android:paddingLeft="10dp"
-            android:id="@+id/cityTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:text="CITY"/>
-        </LinearLayout>
+            android:layout_marginEnd="5dp"
+            app:srcCompat="@drawable/ic_description_black_24dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="0dp"
-            android:orientation="horizontal">
-
-
-        <TextView
-            android:id="@+id/provinceTxt"
-            android:paddingLeft="55dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:text="PROVINCE"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="0dp"
-            android:orientation="horizontal">
-
-        <TextView
-            android:paddingLeft="55dp"
-            android:id="@+id/countryTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:text="COUNTRY"/>
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="0dp"
-            android:orientation="horizontal">
-
-        <TextView
-            android:paddingLeft="55dp"
-            android:id="@+id/zipCodeTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:text="ZIPCODE"/>
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            app:srcCompat="@drawable/ic_view_list_black_24dp" />
-        <TextView
-            android:paddingLeft="10dp"
+            <TextView
             android:id="@+id/descriptionTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:textSize="20sp"
             android:text="DESCRIPTION"/>
         </LinearLayout>
@@ -151,68 +183,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:textAlignment="center"
-
-
-            app:srcCompat="@drawable/bed" />
-        <TextView
-            android:paddingLeft="10dp"
-            android:id="@+id/bedTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:text="BED"/>
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                app:srcCompat="@drawable/bath" />
-        <TextView
-            android:paddingLeft="10dp"
-            android:id="@+id/bathTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:text="BATH"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
+                android:layout_marginEnd="5dp"
                 app:srcCompat="@drawable/dolar" />
+
         <TextView
-            android:paddingLeft="10dp"
             android:id="@+id/priceTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:textSize="20sp"
             android:text="PRICE"/>
         </LinearLayout>

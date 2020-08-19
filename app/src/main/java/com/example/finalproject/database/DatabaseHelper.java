@@ -109,7 +109,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
             if (cursor.moveToFirst()) {
                 do {
-//                while (cursor.moveToNext()) {
                     House house = new House();
                     house.setId(cursor.getInt(cursor.getColumnIndex(HOUSE_ID)));
                     house.setStreetAdress(cursor.getString(cursor.getColumnIndex(STREET_ADRESS)));
@@ -123,9 +122,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     house.setPrice(cursor.getDouble(cursor.getColumnIndex(PRICE)));
                     house.setLatitude(cursor.getDouble(cursor.getColumnIndex(LATITUDE)));
                     house.setLongitude(cursor.getDouble(cursor.getColumnIndex(LONGITUDE)));
-
                     list.add(house);
-//                }
                 } while (cursor.moveToNext());
             }
         } catch (Exception e) {

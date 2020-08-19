@@ -33,7 +33,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_map, container, false);
     }
 
@@ -44,8 +43,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
+        //set camera to zoom in house location
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(this.house.getLatitude(), this.house.getLongitude()), 17.0f));
 
+        //mark house location in map
         googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(this.house.getLatitude(), this.house.getLongitude())));
 

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity"
     android:padding="10dp"
-    android:background="#F0F0F7">
+    android:background="@color/white">
 
 
     <ImageView
@@ -34,7 +34,7 @@
         android:padding="22dp"
         android:text="HouseOfDreams"
         android:textAlignment="center"
-        android:textColor="#000"
+        android:textColor="@color/black"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

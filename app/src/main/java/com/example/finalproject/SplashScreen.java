@@ -18,6 +18,8 @@ public class SplashScreen extends AppCompatActivity {
 
         getSupportActionBar().hide();
         handler=new Handler();
+
+        //give the activity a delay before moving to the main activity
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
