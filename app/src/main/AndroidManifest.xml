@@ -9,21 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".HouseDetailActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDF-ZvxGAmoIL9thq3a41pI4-I_eEb4sQ4"/>
+            android:value="AIzaSyDF-ZvxGAmoIL9thq3a41pI4-I_eEb4sQ4" />
 
-        <activity android:name=".MoreDetailsActivity"
+        <activity
+            android:name=".MoreDetailsActivity"
             android:label="More Details"
             android:parentActivityName=".MainActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-
         </activity>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:label="Dashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
